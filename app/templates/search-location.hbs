@@ -1,49 +1,70 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+
+<div class="container">
+  <h2>Search Location Pablo</h2>
   <br>
-<div class="container-fluid container-fixed-lg">
-    <div class="row">
-      <div class="col-md-12">
-        <ul class="nav nav-tabs nav-tabs-simple d-md-flex d-lg-flex d-xl-flex m-b-30" role="tablist">
-          <li class="nav-item"><a href="#" class="active" data-toggle="tab" data-target="#longlat" style="margin-right:10px">Input latitude longitude</a></li>
-          <li class="nav-item"><a href="#" data-toggle="tab" data-target="#csv" style="margin-right:10px">Upload file CSV</a></li>
-          <li class="nav-item"><a href="#" data-toggle="tab" data-target="#excel" style="margin-right:10px">Upload file Excel</a></li>
-        </ul>
-        <form id="search-location">
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="longlat">
-              <div class = "formGroup">
-                <div class="col-md-6">
-                  <br/>
-                  <label>Longitude</label>
-                  <div>
-                    {{input type="text" class="form-control" value =longitude}}
-                  </div>
-                  <label>Latitude</label>
-                  <div>
-                    {{input type="text" class="form-control" value =latitude}}
-                  </div>
-                  <br/>
-                  <button {{action "searchLocation"}} class ="btn btn-primary">SUBMIT</button>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="csv">
-                <div class = "formGroup">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#inputll">Input Longitude-Latitude</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#inputcsv">Input File CSV</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#inputexcel">Input File Excel</a>
+    </li>
+  </ul>
 
-                <br>
-                <br>
-                <button {{action "searchLocation"}} class ="btn btn-primary">Upload File CSV</button>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="excel">
-                <div class = "formGroup">
-
-                <br>
-                <br>
-                <button {{action "searchLocation"}} class ="btn btn-primary">Upload File EXCEL</button>
-              </div>
-            </div>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="inputll" class="container tab-pane active"><br>
+      <h3>Input Longitude - Latitude</h3>
+      <div class = "formGroup">
+        <div class="col-md-6">
+          <br/>
+          <label>Longitude</label>
+          <div>
+            {{input type="text" class="form-control" value =longitude}}
           </div>
-        </form>
+          <label>Latitude</label>
+          <div>
+            {{input type="text" class="form-control" value =latitude}}
+          </div>
+          <br/>
+          <button {{action "searchLocation"}} class ="btn btn-primary">SUBMIT</button>
+        </div>
       </div>
     </div>
+    <div id="inputcsv" class="container tab-pane fade"><br>
+      <h3>Input File CSV</h3>
+      <div class = "formGroup">
+        <br>
+        <br>
+        <button {{action "searchLocation"}} class ="btn btn-primary">Upload File CSV</button>
+      </div>
+    </div>
+    <div id="inputexcel" class="container tab-pane fade"><br>
+      <h3>Input File Excel</h3>
+      <div class = "formGroup">
+        <br>
+        <br>
+        <button {{action "searchLocation"}} class ="btn btn-primary">Upload File EXCEL</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+</body>
+</html>
