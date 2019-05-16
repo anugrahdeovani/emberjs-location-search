@@ -36,11 +36,11 @@
           <br/>
           <label>Longitude</label>
           <div>
-            {{input type="text" class="form-control" value =longitude}}
+            {{input type="text" class="form-control" name='longitude' id='longitude' value =longitude}}
           </div>
           <label>Latitude</label>
           <div>
-            {{input type="text" class="form-control" value =latitude}}
+            {{input type="text" class="form-control" name='latitude' id='latitude' value =latitude}}
           </div>
           <br/>
           <button {{action "searchLocation"}} class ="btn btn-primary">SUBMIT</button>
@@ -68,3 +68,67 @@
 
 </body>
 </html>
+
+<br/>
+<br/>
+{{#if locationfound}}
+<html lang="en">
+<head>
+  <title>Lokasi Ditemukan</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Lokasi Ditemukan</h2>
+  <p>Berikut detil lokasi ditemukan dari longitude dan latitude diatas:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Desa</th>
+        <th>Kecamatan</th>
+        <th>Kabupaten</th>
+        <th>Provinsi</th>
+        <th>Region</th>
+        <th>Area</th>
+        <th>Branch</th>
+        <th>Subbranch</th>
+        <th>Cluster</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{locationfound.locationfound.desa}}</td>
+        <td>{{locationfound.locationfound.kecamatan}}</td>
+        <td>{{locationfound.locationfound.kabupaten}}</td>
+        <td>{{locationfound.locationfound.provinsi}}</td>
+        <td>{{locationfound.locationfound.region}}</td>
+        <td>{{locationfound.locationfound.area}}</td>
+        <td>{{locationfound.locationfound.branch}}</td>
+        <td>{{locationfound.locationfound.subbranch}}</td>
+        <td>{{locationfound.locationfound.cluster}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-md-2">
+      <button {{action "importcsv"}} class ="btn btn-primary">Import to CSV</button>
+    </div>
+    <div class="col-md-2">
+      <button {{action "importcsv"}} class ="btn btn-primary">Import to EXCEL</button>
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+</body>
+</html>
+{{/if}}

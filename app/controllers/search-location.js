@@ -1,19 +1,23 @@
-import Controller from '@ember/controller';
+import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 
 export default Controller.extend({
+  locationfound: null,
+  store: service(),
+  location: service(),
   actions: {
-    searchLocation()  {
-      alert('Susah ah')
-        // this.get('session').userResetPass({
-        //   email: this.get('email'),
-        //   code: this.get('token'),
-        //   new_password: this.get('password'),
-        //   confirmation: this.get('repassword')
-        // }).then((response) => {
-        //   this.set('responseSuccess', response);
-        // }).catch(() => {
-        //   this.set('responseError', 'Terjadi error, silakan coba beberapa saat lagi.');
-        // })
+    searchLocation() {
+      this.get("location")
+        .searchbylonglat(this.get("longitude"), this.get("latitude"))
+        .then(locationfound => {
+          this.set("locationfound", { locationfound });
+        })
+        .catch(reason => {
+          alert(reason);
+        });
     },
+    importcsv() {
+      alert("COMINGSOON ASUUU!");
+    }
   }
 });
